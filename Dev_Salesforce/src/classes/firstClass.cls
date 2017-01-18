@@ -1,0 +1,10 @@
+public class firstClass{
+    public firstClass(){
+    	system.debug('test');
+    	system.debug('test');
+    	system.debug('test');
+    	system.debug('te st2222');
+    	system.debug('test2222');
+    	
+    }
+}

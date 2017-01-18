@@ -1,0 +1,27 @@
+<apex:page >
+<script type="text/javascript" src="/soap/ajax/28.0/connection.js"></SCRIPT> 
+
+<script type="text/javascript"> 
+ function getProfileId(){ 
+   sforce.connection.sessionId = window.ApiUtils.getSessionId(); 
+   sforce.connection.query( 
+       "SELECT ProfileId FROM User WHERE Id = '" + window.UserContext.userId + "'", 
+       { 
+         onSuccess: 
+           function(result){ 
+             document.getElementById('lblProfileId').innerHTML = result.records.ProfileId; 
+             var profId= result.records.ProfileId;
+             alert('Profile Id: ' + profId);
+           }, 
+         onFailure: 
+           function(){ 
+             document.getElementById('lblProfileId').innerHTML = '#ERROR'; 
+           } 
+       } 
+   ); 
+ } 
+
+ getProfileId(); 
+</script> 
+<LABEL id="lblProfileId"></LABEL>
+</apex:page>
